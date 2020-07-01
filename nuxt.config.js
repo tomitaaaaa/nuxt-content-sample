@@ -9,6 +9,10 @@ export default {
    ** See https://nuxtjs.org/api/configuration-target
    */
   target: 'static',
+  router: {
+    base:
+      process.env.NODE_ENV === 'development' ? '/' : '/nuxt-content-sample/',
+  },
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
@@ -75,15 +79,4 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
-
-  generate: {
-    async routes() {
-      const { $content } = require('@nuxt/content')
-      const files = await $content().only(['path']).fetch()
-      console.log(
-        files.map((file) => (file.path === '/index' ? '/' : file.path))
-      )
-      return files.map((file) => (file.path === '/index' ? '/' : file.path))
-    },
-  },
 }
