@@ -40,9 +40,6 @@ jobs:
     - name: Install Dependencies
       run: yarn install
 
-    - name: lint
-      run: yarn lint
-
     - name: build
       run: |
         yarn nuxt build
