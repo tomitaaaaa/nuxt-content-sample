@@ -44,8 +44,9 @@ jobs:
       run: yarn lint
 
     - name: build
-      run: yarn nuxt build
-      run: yarn nuxt export
+      run: |
+        yarn nuxt build
+        yarn nuxt export
 
     - name: deploy
       uses: peaceiris/actions-gh-pages@v3
